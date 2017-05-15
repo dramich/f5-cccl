@@ -1160,10 +1160,9 @@ class CloudBigIP(BigIP):
         def find_change(p, d):
             """Check if data for policy has been updated."""
             for key, val in p.__dict__.iteritems():
+                logger.error("potato %s, %s, %s", key, val, data)
                 if key in d:
-                    if val is not None and (d[key] != val.strip()):
-                            return True
-                    elif (d[key] != val):
+                    if (d[key] != val):
                             return True
             for key, _ in d.iteritems():
                 if key not in p.__dict__:

@@ -333,7 +333,8 @@ class ServiceConfigDeployer(object):
 
         vs1 = existing.get("cf-test-bigip-controller-1-0317ea54e50375c6", "")
         vs2 = desired.get("cf-test-bigip-controller-1-0317ea54e50375c6", "")
-        LOGGER.warn("CRAP", vs1, vs2)
+        message = str.format("CRAP: existing:{}, desired:{}", vs1, vs2)
+        LOGGER.warning(message)
         (create_virtuals, update_virtuals, delete_virtuals) = (
             self._get_resource_tasks(existing_virtuals, desired))
 

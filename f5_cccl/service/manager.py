@@ -331,7 +331,7 @@ class ServiceConfigDeployer(object):
         existing_virtuals = self._bigip.get_virtuals()
         desired = desired_config.get('virtuals', dict())
 
-        vs1 = existing.get("routing-vip-https", "")
+        vs1 = existing_virtuals.get("routing-vip-https", "")
         vs2 = desired.get("routing-vip-https", "")
         message = str.format("CRAP: existing:{}, desired:{}", vs1, vs2)
         LOGGER.warning(message)
